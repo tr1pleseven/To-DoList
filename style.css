@@ -6,9 +6,20 @@ body{
 
 
 
+.inputlabel {
+  color: white;
+  font-weight: bold;
+  
+}
 
 .inputform1 {
+   border: 0px;
     margin-bottom: 10px;
     height: 20px;
+    border-radius: 10px;
+}
+
+.submitform {
+  border:0px;
 }
 
