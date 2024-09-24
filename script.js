@@ -11,7 +11,7 @@ function fn(e){
     
     inputemail.value = ''
     inputpassword.value = ''
-    function thisperson[](email,password){
+    function thisperson(email,password){
       this.password = password
       this.email = email
     }
