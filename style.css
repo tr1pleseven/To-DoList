@@ -1,25 +1,38 @@
-body{
-    background-color: #383838;
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content: center;
+}
 
+.container{
+    width: 1000px;
+    display:flex;
+    flex-direction: column;
+}
 
+ul {
+    list-style-type: none;
 }
 
 
-
-.inputlabel {
-  color: white;
-  font-weight: bold;
-  
+#headtag { 
+    box-sizing: content-box;
+    position:relative;
+    background-color:rgb(62, 62, 62);
+    width: 100%;
 }
 
-.inputform1 {
-   border: 0px;
-    margin-bottom: 10px;
-    height: 20px;
-    border-radius: 10px;
+
+#headtag h1 { 
+    text-align: center;
 }
 
-.submitform {
-  border:0px;
+
+.Progress{
+    position:relative;
+    left: 80%
 }
 
+.insidediv{
+    height: 10px;
+}
