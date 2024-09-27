@@ -5,6 +5,10 @@ let _ul = document.querySelector("ul")
 
 let clearlistbtn = document.getElementById("clearlist")
 
+let progressbar = document.getElementById("progresso")
+
+var gg = undefined
+let checkboxeson = 0
 
 //get date
 const now = new Date()
@@ -23,36 +27,70 @@ function clearlist(e){
 
 
 function clickevent(e){
-
+if(todoinput.value != ""){
     //assign time
     const time = now.getDay()
 
-e.preventDefault()
-var li = document.createElement("li")
+    console.log(todoinput.value)
 
-//_CHILD_APPEND_LIST
-li.appendChild(document.createTextNode(todoinput.value))
-
-var newdiv1 = li.appendChild(document.createElement("div"))
-var lilabel = newdiv1.appendChild(document.createElement("label"))
-lilabel.className = "Progress"
-lilabel.textContent = "Done:"
+    e.preventDefault()
 
 
+    //_CHILD_APPEND_LIST
+    var li = document.createElement("li")
+    li.appendChild(document.createTextNode(todoinput.value))
+    var deletebtn = li.appendChild(document.createElement("button"))
+    deletebtn.setAttribute("type","submit")
+    deletebtn.textContent = "X"
+    deletebtn.className = "Delete"
 
-var gg = lilabel.appendChild(document.createElement("input"))
-gg.setAttribute("type","checkbox")
-console.log(time)
-
-li.className = "todo"
 
 
-_ul.appendChild(li)
-todoinput.value = null
+    var lilabel = li.appendChild(document.createElement("label"))
+    lilabel.className = "Progress"
+    lilabel.textContent = "Finished:"
 
+    gg = lilabel.appendChild(document.createElement("input"))
+    gg.setAttribute("type","checkbox")
+    console.log(time)
+    gg.addEventListener('change', changefunction)
+
+
+    
+    
+
+    li.className = "todo"
+
+    _ul.appendChild(li)
+    todoinput.value = null
+
+    
+
+
+    deletebtn.addEventListener("click", deleteevent)
+    progressbar.textContent = `Progress:${checkboxeson}`
+    function deleteevent(e){
+        deletebtn.parentElement.remove()
+        console.log(deletebtn.parentElement)
+    }
+}else{
+    return
+}
 
 
 }
+
+//_EVENTLISTENERS2.0
+
+function changefunction(e){
+    if(e.checked){
+        console.log("true")
+    }else if (e.checked == false){
+        console.log("false")
+    }
+}
+
+
 
 function inputevent(e){
     e.preventDefault()
