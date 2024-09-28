@@ -74,6 +74,54 @@ ol li::marker {
 }
 
 
+.CheckTest{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 120%;
+    height: 20px;
+    width: 22.5px;
+    background-color: rgb(88, 68, 110);
+  }
+
+  li:hover input ~ .checkmark {
+    background-color: rgb(62, 49, 76);
+  }
+
+  li input:checked ~ .checkmark {
+    background-color: rgb(192, 77, 194);
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  } 
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  li .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 2.5px;
+    height: 7.5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
 
 
 .Delete {

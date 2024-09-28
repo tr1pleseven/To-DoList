@@ -59,6 +59,10 @@ if(todoinput.value != ""){
     gg.className = "CheckTest"
     console.log(time)
 
+    let spancheck = lilabel.appendChild(document.createElement("span"))
+
+    spancheck.className = "checkmark"
+
     
 
     
