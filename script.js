@@ -8,10 +8,12 @@ let clearlistbtn = document.getElementById("clearlist")
 let progressbar = document.getElementById("progresso")
 
 var gg = undefined
-let checkboxeson = 0
+let _CHECKBOXESON = 0
 
 //get date
 const now = new Date()
+
+
 
 
 //event listeners
@@ -52,43 +54,80 @@ if(todoinput.value != ""){
 
     gg = lilabel.appendChild(document.createElement("input"))
     gg.setAttribute("type","checkbox")
+    gg.className = "CheckTest"
     console.log(time)
-    gg.addEventListener('change', changefunction)
-
 
     
+
+    
+
     
 
     li.className = "todo"
 
     _ul.appendChild(li)
     todoinput.value = null
-
+    
     
 
-
     deletebtn.addEventListener("click", deleteevent)
-    progressbar.textContent = `Progress:${checkboxeson}`
+    
     function deleteevent(e){
         deletebtn.parentElement.remove()
         console.log(deletebtn.parentElement)
+        _CHECKBOXESON = _CHECKBOXESON - 1
+        return _CHECKBOXESON
     }
+
+    const collection = document.querySelectorAll(".CheckTest")
+
+
+    let _check = 
+
+    gg.addEventListener('change', changefunction)
+
+    function changefunction(e){
+           
+            
+        
+            if (e.target.checked == true){
+                console.log(gg.checked + "1")
+                _CHECKBOXESON = _CHECKBOXESON + 1
+                e.target.setAttribute("onclick","return false")
+                console.log(_CHECKBOXESON)
+                progressbar.textContent = `Finished Tasks:${_CHECKBOXESON}`
+                return _CHECKBOXESON
+              } 
+                
+    }
+
+    /*/function changefunction(_check){
+        if (_check.checked == true){
+            console.log(_check.checked + "1")
+            _CHECKBOXESON = _CHECKBOXESON + 1 
+            progressbar.textContent = `Progress:${_CHECKBOXESON}`
+            console.log(_CHECKBOXESON)
+          } else if (_check.checked == false) {
+            console.log(_check.checked + "2")
+            if(_CHECKBOXESON > 0){
+                _CHECKBOXESON = _CHECKBOXESON - 1
+                progressbar.textContent = `Progress:${_CHECKBOXESON}`
+                console.log(_CHECKBOXESON)
+            }else {
+                return
+            }
+            
+          }
+    }
+    /*/
 }else{
     return
 }
-
-
 }
 
 //_EVENTLISTENERS2.0
 
-function changefunction(e){
-    if(e.checked){
-        console.log("true")
-    }else if (e.checked == false){
-        console.log("false")
-    }
-}
+
 
 
 
