@@ -1,7 +1,7 @@
 //variables
 let todoinput = document.querySelector(".inputtodo")
 let submitbutton = document.querySelector(".btn")
-let _ul = document.querySelector("ul")
+let _ul = document.querySelector("ol")
 
 let clearlistbtn = document.getElementById("clearlist")
 
@@ -24,11 +24,13 @@ clearlistbtn.addEventListener("click", clearlist)
 
 function clearlist(e){
    _ul.innerHTML = ""
+   _CHECKBOXESON = 0
+   progressbar.textContent = `Finished Tasks:${_CHECKBOXESON}`
 }
 
 
 
-function clickevent(e){
+function clickevent(e,_change){
 if(todoinput.value != ""){
     //assign time
     const time = now.getDay()
@@ -70,36 +72,46 @@ if(todoinput.value != ""){
     
     
 
-    deletebtn.addEventListener("click", deleteevent)
     
-    function deleteevent(e){
-        deletebtn.parentElement.remove()
-        console.log(deletebtn.parentElement)
-        _CHECKBOXESON = _CHECKBOXESON - 1
-        return _CHECKBOXESON
-    }
 
     const collection = document.querySelectorAll(".CheckTest")
 
 
-    let _check = 
-
     gg.addEventListener('change', changefunction)
 
-    function changefunction(e){
+
+    function changefunction(_change){
            
             
-        
-            if (e.target.checked == true){
-                console.log(gg.checked + "1")
+
+            if (_change.target.checked == true){
+                console.log(_change.target.checked + "1")
                 _CHECKBOXESON = _CHECKBOXESON + 1
-                e.target.setAttribute("onclick","return false")
+                _change.target.setAttribute("onclick","return false")
                 console.log(_CHECKBOXESON)
                 progressbar.textContent = `Finished Tasks:${_CHECKBOXESON}`
-                return _CHECKBOXESON
-              } 
                 
+                return _CHECKBOXESON
+                
+              } 
+
     }
+
+
+    deletebtn.addEventListener("click", deleteevent)
+    function deleteevent(e){
+        deletebtn.parentElement.remove()
+       
+        console.log(e.checked)
+        if(e.target.parentElement.querySelector('.CheckTest').checked == true) {
+            _CHECKBOXESON = _CHECKBOXESON - 1
+            progressbar.textContent = `Finished Tasks:${_CHECKBOXESON}`
+            return _CHECKBOXESON
+        }
+        
+    }
+
+
 
     /*/function changefunction(_check){
         if (_check.checked == true){

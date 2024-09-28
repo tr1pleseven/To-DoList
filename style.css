@@ -37,8 +37,17 @@ button{
     flex-direction: column;
 }
 
-ul {
-    list-style-type: none;
+li{
+    list-style-position:inside;
+    border:3px solid rgb(80, 33, 95);
+    margin:5px
+}
+
+ol li::marker {
+    font-weight: bold;
+    font-size: larger;
+    color :rgb(114, 82, 165);
+    
 }
 
 
@@ -68,11 +77,12 @@ ul {
 
 
 .Delete {
-    border-radius: 100px ;
+    padding: 3px 10px;
     position:absolute;
-    left: 17%;
-    background-color: brown;
-    color:white;
+    left: 17.25%;
+    background-color: rgb(138, 42, 165);
+    color:rgb(62, 1, 74);
     font-weight: bold;
+    font-size: 15px;
     border: 0px
 }
